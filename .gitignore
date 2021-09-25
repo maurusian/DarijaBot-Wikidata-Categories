@@ -12,7 +12,13 @@ build/
 develop-eggs/
 dist/
 downloads/
+apicache-py3/
+apicache-py3/*
+password.txt
+throttle.ctrl
+user-config.py
 eggs/
+pywikibot.lwp
 .eggs/
 lib/
 lib64/
