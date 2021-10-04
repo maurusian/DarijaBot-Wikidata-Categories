@@ -196,10 +196,10 @@ def run_for_period_type(period_type):
 
 
 #run for years
-#run_for_period_type('year')
+run_for_period_type('year')
 
 #run for decades
-#run_for_period_type('decade')
+run_for_period_type('decade')
 
 #run for birth years
 run_for_period_type('birth year')
@@ -212,88 +212,3 @@ run_for_period_type('birth decade')
 
 #run for death years
 run_for_period_type('death decade')
-
-
-"""
-print("Prepare raw dict")
-#raw_year_dict = dict(get_data(ITEM_TYPES['year']))
-raw_year_list = get_data2('year')
-print("Raw dict ready")
-#print(raw_year_list[0])
-print("Prepare year dict")
-year_dict = rebuild_year_dict(raw_year_list)
-print(year_dict)
-print("Year dict ready")
-
-print("iterate over years")
-counter = 0
-for key in year_dict.keys():
-    #en_title = "Category:AD"+str(key)
-    
-    if key < 0:
-        ary_title+="تصنيف:"+str(0-key)+" قبل لميلاد"
-    else:
-        ary_title = "تصنيف:"+str(key)
-    #print(key)
-    #print(dict(get_data(ITEM_TYPES['year']))['results']['bindings'][1])
-    site = pywikibot.Site()
-    repo = site.data_repository()
-    #site_en = pywikibot.Site('en','wikipedia')
-    #page = pywikibot.Page(site_en, en_title)
-    #print(page.getID())
-    #item = pywikibot.ItemPage(repo, item_id)
-    cat_item = pywikibot.ItemPage(repo,year_dict[key])
-    cat_item.get()
-    #print(list(cat_item.sitelinks.keys()))
-    site_ary = pywikibot.Site('ary','wikipedia')
-    page = pywikibot.Page(site_ary, ary_title)
-    if page.text != '':
-        print("Page "+ary_title+" found")
-        if 'arywiki' not in cat_item.sitelinks.keys():
-            cat_item.setSitelink(page, summary=u'Setting sitelink by adding ary category')
-            counter+=1
-    
-print(str(counter)+" objects linked")
-
-
-print("Prepare raw dict")
-#raw_year_dict = dict(get_data(ITEM_TYPES['year']))
-raw_decade_list = get_data2('decade')
-print("Raw dict ready")
-#print(raw_year_list[0])
-print("Prepare decade dict")
-decade_dict = rebuild_decade_dict(raw_decade_list)
-print(decade_dict)
-print("Decade dict ready")
-
-print("iterate over decades")
-counter = 0
-for key in decade_dict.keys():
-    #en_title = "Category:"+str(key)+"s"
-    ary_title = "تصنيف:عوام "+str(key)
-    if key < 0:
-        ary_title+= "تصنيف:عوام "+str(0-key)+" قبل لميلاد"
-    else:
-        ary_title = "تصنيف:عوام "+str(key)
-    #print(key)
-    #print(dict(get_data(ITEM_TYPES['year']))['results']['bindings'][1])
-    site = pywikibot.Site()
-    repo = site.data_repository()
-    #site_en = pywikibot.Site('en','wikipedia')
-    #page = pywikibot.Page(site_en, en_title)
-    #print(page.getID())
-    #item = pywikibot.ItemPage(repo, item_id)
-    cat_item = pywikibot.ItemPage(repo,decade_dict[key])
-    cat_item.get()
-    #print(list(cat_item.sitelinks.keys()))
-    site_ary = pywikibot.Site('ary','wikipedia')
-    page = pywikibot.Page(site_ary, ary_title)
-    if page.text != '':
-        print("Page "+ary_title+" found")
-        if 'arywiki' not in cat_item.sitelinks.keys():
-            cat_item.setSitelink(page, summary=u'Setting sitelink by adding ary category')
-            counter+=1
-    
-print(str(counter)+" objects linked")
-    
-"""
